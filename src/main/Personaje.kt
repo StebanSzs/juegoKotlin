@@ -48,4 +48,5 @@ abstract class Personaje (val nombre:String){
     fun estaProtegido():Boolean{
         return escudo
     }
+
 }
