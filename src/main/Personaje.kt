@@ -1,4 +1,4 @@
-package main.kotlin.videoJuego
+package main
 
 abstract class Personaje (val nombre:String){
     private var vida:Int = 100
@@ -48,5 +48,4 @@ abstract class Personaje (val nombre:String){
     fun estaProtegido():Boolean{
         return escudo
     }
-
 }

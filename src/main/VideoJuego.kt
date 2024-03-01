@@ -1,6 +1,4 @@
-package main.kotlin.videoJuego
-
-import main.Bruja
+package main
 
 fun main() {
     println("***** Inicio del juego Telelocos*****")

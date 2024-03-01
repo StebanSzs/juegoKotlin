@@ -1,6 +1,6 @@
-package main.kotlin.videoJuego
+package main
 
-class Hechizero(nombreHechizero:String):Personaje(nombreHechizero) {
+class Hechizero(nombreHechizero:String): Personaje(nombreHechizero) {
     private var magia = 10
 
     fun modificarFuerza(incremento:Int){
@@ -16,7 +16,7 @@ class Hechizero(nombreHechizero:String):Personaje(nombreHechizero) {
         }
     }
 
-    fun curar(amigo:Personaje){
+    fun curar(amigo: Personaje){
         amigo.modificarVida(magia)
     }
 }
