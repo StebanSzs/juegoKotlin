@@ -1,52 +1,59 @@
 package main
 
 fun main() {
+
+    println("**************************************")
     println("***** Inicio del juego Telelocos *****")
+    println("**************************************")
+
+    print("\nIngresa tu nombre: ")
+    val nombre = readLine()
     println()
-    println()
 
-    val guerrero1=Guerrero("Atreyu")
-    val hechizero1 = Hechizero("Merlin")
-    val guerrero2=Guerrero("Goku")
-    val hechizero2 = Hechizero("Diablo")
-    val bruja1 = Bruja("Grenilda")
+    var opcion: Int?
 
-    println("***** Selecciona una opción *****")
-    println()
-    println("1. Iniciar juego")
-    println("2. Instrucciones")
-    println("3. Salir")
+    do {
+        imprimirMenuOpciones()
+        opcion = readLine()?.toIntOrNull()
 
-    val opcion = readLine()?.toIntOrNull()
+        when (opcion) {
+            1 -> println("Bienvenido ${nombre.uppercase()} Al juego de los Telelocos\n")
+            2 -> println("Seleccionaste el personaje Hechizero\n")
+            3 -> println("Seleccionaste el personaje Bruja\n")
+            else -> println("Opción no válida\n")
+        }
 
-    when (opcion) {
-        1 -> println("Seleccionaste el personaje guerrero")
+    } while (opcion !in 1..3)
 
-        2 -> println("Seleccionaste el personaje Hechizero")
+    var selecPersonaje: Int?
 
-        3 -> println("Seleccionaste el personaje Bruja")
+    do {
+        imprimirTuPersonaje()
+        selecPersonaje = readLine()?.toIntOrNull()
 
-        else -> println("Opción no válida")
-    }
+        when (selecPersonaje) {
+            1 -> println("Seleccionaste el personaje guerrero\n")
+            2 -> println("Seleccionaste el personaje Hechizero\n")
+            3 -> imprimirAsciiBruja()
+            else -> println("Opción no válida\n")
+        }
 
-    println("***** Selecciona un personaje *****")
-    println()
-    println("1. Guerrero")
-    println("2. Hechizero")
-    println("3. Bruja")
+    } while (selecPersonaje !in 1..3)
 
+    var selecEnemigo: Int?
 
-    val selecPersonaje = readLine()?.toIntOrNull()
+    do {
+        imprimirTuEnemigo()
+        selecEnemigo = readLine()?.toIntOrNull()
 
-    when (selecPersonaje) {
-        1 -> println("Seleccionaste el personaje guerrero")
+        when (selecEnemigo) {
+            1 -> println("Tu enemigo es el personaje guerrero")
+            2 -> println("Tu enemigo es el personaje Hechizero")
+            3 -> println("Tu enemigo es el personaje Bruja")
+            else -> println("Opción no válida\n")
+        }
 
-        2 -> println("Seleccionaste el personaje Hechizero")
-
-        3 -> println("Seleccionaste el personaje Bruja")
-
-        else -> println("Opción no válida")
-    }
+    } while (selecEnemigo !in 1..3)
 
 
     /* guerrero1.atacar(guerrero2)
@@ -64,4 +71,69 @@ fun main() {
      bruja1.atacar(guerrero1)
      println(guerrero1.imprimirPersonaje())
  */
+}
+fun imprimirMenuOpciones() {
+    println("***** Selecciona una opción *****")
+    println()
+    println("1. Iniciar juego")
+    println("2. Instrucciones")
+    println("3. Salir")
+}
+
+fun imprimirTuPersonaje() {
+    println("***** Selecciona un personaje *****")
+    println()
+    println("1. Guerrero")
+    println("2. Hechizero")
+    println("3. Bruja")
+}
+
+fun imprimirTuEnemigo() {
+    println("***** Selecciona un enemigo *****")
+    println()
+    println("1. Guerrero")
+    println("2. Hechizero")
+    println("3. Bruja")
+}
+
+fun imprimirAsciiBruja(){
+    println("Seleccionaste el personaje Bruja\n" +
+            "|||||||||||||||||||||||\n" +
+            "    |||||||||||||||||||||||\n" +
+            "    |||||||||||||||||||||||\n" +
+            "    |||||||||||||||||||||||\n" +
+            "    ||||||||||||||||||||||| _._\n" +
+            "    |||||||||||||||||||||||/  _`\\\n" +
+            "    ||||||||||||||||||||||;  /  `\n" +
+            "    |||||||||||||||||||||/   |\n" +
+            "    ||||||||||||||||||||/     \\\n" +
+            "    |||||||||||||||||||/       ;\n" +
+            "    |=================;        |\n" +
+            "    |                 |         \\\n" +
+            "    ;-----------------;          \\\n" +
+            "    \\\\\\||||||||||||||/           `\\\n" +
+            "     \\\\\\||||||||||||/              '.\n" +
+            "      ':\\\\||||||||.'                 `\\\n" +
+            "        `-=;;||||/                     \\\n" +
+            "             _|_/_                      ;\n" +
+            "     __.--\"\"`     ``'-.                 |\n" +
+            "     '.______          `'-._            \\\n" +
+            "            /```--.._       '._          |\n" +
+            "            | )))    `-.       `'._      \\\n" +
+            "            |/_\\`'.     `;-.       '._    ;\n" +
+            "            _)o/_.'       \\\\\\-.       '.  |\n" +
+            "          .'               \\\\\\\\\\;_      '.|\n" +
+            "        _/                 )))))));-._    ``'--._,\n" +
+            "      (`                  ////////////;-..._____.'\n" +
+            "       \\__.-._)          ((((((((((((((((((\\,\n" +
+            "             \\            \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\,\n" +
+            "             (__.-'        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n" +
+            "              (_.           )))))))))))))))))))))\n" +
+            "               | `\\        (((((((((((((((((((((\n" +
+            "               |  |\\        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n" +
+            "               |  | '.__     \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n" +
+            "               |  |     '.__/ )))))))))))))))))))))\n" +
+            "               |  |        ) (((((((((((((((((((((\n" +
+            "               |  |      .'   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" +
+            "\n")
 }
