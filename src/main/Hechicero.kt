@@ -1,6 +1,6 @@
 package main
 
-class Hechizero(nombreHechizero:String): Personaje(nombreHechizero) {
+class Hechicero(nombreHechicero:String): Personaje(nombreHechicero) {
     private var magia = 10
 
     fun modificarFuerza(incremento:Int){

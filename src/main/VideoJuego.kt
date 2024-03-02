@@ -16,7 +16,7 @@ fun main() {
         opcion = readLine()?.toIntOrNull()
 
         when (opcion) {
-            1 -> println("Bienvenido al juego de los Telelocos ${nombre.uppercase()} \n")
+            1 -> println("Bienvenido ${nombre.uppercase()}, al juego de los Telelocos\n")
             2 -> println("Instrucciones\n")
             3 -> imprimirDespedida()
             else -> println("Opción no válida\n")
@@ -30,35 +30,69 @@ fun main() {
                 selecPersonaje = readLine()?.toIntOrNull()
 
                 when (selecPersonaje) {
-                    1 -> imprimirAsciiCaballero()
-                    2 -> println("Seleccionaste el personaje Hechizero\n")
-                    3 -> imprimirAsciiBruja()
+                    1 -> {
+                        println("Has seleccionado al Guerrero")
+                        imprimirAsciiGuerrero()
+                        val personaje = Guerrero(nombre)
+                    }
+                    2 -> {
+                        println("Has seleccionado al Hechicero")
+                        imprimirAsciiHechicero()
+                        val personaje = Hechicero(nombre)
+                    }
+                    3 -> {
+                        println("Has seleccionado a la Bruja")
+                        imprimirAsciiBruja()
+                        val personaje = Bruja(nombre)
+                    }
                     else -> println("Opción no válida\n")
                 }
             } while (selecPersonaje !in 1..3)
 
+            imprimirTuEnemigo()
             var selecEnemigo: Int?
 
             do {
-                imprimirTuEnemigo()
                 selecEnemigo = readLine()?.toIntOrNull()
 
                 when (selecEnemigo) {
-                    1 -> println("Tu enemigo es el personaje guerrero")
-                    2 -> println("Tu enemigo es el personaje Hechizero")
-                    3 -> println("Tu enemigo es el personaje Bruja")
+                    1 -> {
+                        println("Tu enemigo es el Guerrero")
+                        imprimirAsciiGuerrero()
+                        val enemigo = Guerrero("Enemigo")
+                    }
+                    2 -> {
+                        println("Tu enemigo es el Hechicero")
+                        imprimirAsciiHechicero()
+                        val enemigo = Hechicero("Hechicero")
+                    }
+                    3 -> {
+                        println("Tu enemigo es la Bruja")
+                        imprimirAsciiBruja()
+                    }
                     else -> println("Opción no válida\n")
                 }
             } while (selecEnemigo !in 1..3)
         }
     } while (opcion !in 1..3)
 }
+
 fun imprimirMenuOpciones() {
-    println("***** Selecciona una opción *****")
-    println()
+    println("***** Selecciona una opción *****\n")
     println("1. Iniciar juego")
     println("2. Instrucciones")
     println("3. Salir")
+}
+
+fun imprimirSaludo(){
+    println("\n**************************************")
+    println("***** Inicio del juego Telelocos *****")
+    println("**************************************")
+}
+fun imprimirDespedida() {
+    println("**************************************")
+    println("***** Gracias por jugar Telelocos *****")
+    println("**************************************")
 }
 
 fun imprimirTuPersonaje() {
@@ -77,10 +111,26 @@ fun imprimirTuEnemigo() {
     println("3. Bruja")
 }
 
-fun imprimirDespedida(){
-    println("**************************************")
-    println("***** Gracias por jugar Telelocos *****")
-    println("**************************************")
+fun seleccionarPersonaje() {
+    var selecPersonaje: Int?
+
+    do {
+        imprimirTuPersonaje()
+        selecPersonaje = readLine()?.toIntOrNull()
+
+        when (selecPersonaje) {
+            1 -> imprimirAsciiGuerrero()
+            2 -> {
+                println("Has seleccionado al Hechicero")
+                imprimirAsciiHechicero()
+            }
+            3 -> {
+                println("Has seleccionado a la Bruja")
+                imprimirAsciiBruja()
+            }
+            else -> println("Opción no válida\n")
+        }
+    } while (selecPersonaje !in 1..3)
 }
 
 fun imprimirAsciiBruja(){
@@ -113,7 +163,7 @@ fun imprimirAsciiBruja(){
             "\n")
 }
 
-fun imprimirAsciiCaballero (){
+fun imprimirAsciiGuerrero (){
     println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣿⣶⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
             "⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀\n" +
             "⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀\n" +
@@ -134,4 +184,34 @@ fun imprimirAsciiCaballero (){
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠛⠿⣿⣿⣿⣿⣷⡦⠉⢿⣿⡷⠦⠀⠀⠀\n" +
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⡿⠋⠀⠀⠈⠀⠀⠀⠀⠀⠀" +
             "\n")
+}
+
+fun imprimirAsciiHechicero (){
+    println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣶⠟⠛⠉⠉⠉⠛⠻⢿⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⣍⠻⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⣄⠛⢿⣶⣄⣠⡾⣧⡀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣷⣦⡉⠻⣫⣾⡽⣷⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠇⠀⠀⣀⣀⡀⠀⠀⠀⠀⣀⣀⡀⠀⠸⣿⠻⣿⣾⡿⠃⠹⣿⣷⡀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⣿⣇⠀⠉⠀⠀⠀⠈⠛⠛⠒⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠃⢀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣶⡿⠿⠟⠋⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠙⠛⠿⢿⣶⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⢀⣠⣴⣾⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⣷⣦⣄⡀⠀⠀⠀⠀\n" +
+            "⠀⣀⣴⣾⣿⣛⣁⣤⣤⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣠⣤⣌⣛⣿⣷⣦⣀⠀\n" +
+            "⣼⡿⣿⣿⣿⣿⣿⣿⠋⠉⢹⡿⠻⣿⣿⡶⠒⠒⠲⣶⣶⣶⣶⣶⣶⡶⠖⠒⠲⢾⣿⣿⠟⢿⡏⠉⠙⣿⣿⣿⣿⣿⣿⢿⣷\n" +
+            "⢹⣷⡙⢿⣿⣿⠾⠍⠁⠀⣾⠇⠀⢻⠀⢈⣻⣷⣶⣤⣤⡽⠟⢯⣤⣤⣴⣾⣿⡁⠀⡟⠀⠘⣷⠀⠈⠩⠷⣿⣿⡿⢋⣾⡟\n" +
+            "⠀⠙⢿⣶⣭⣛⡿⠷⠤⣼⠏⢠⢶⣾⠀⠀⠙⠓⢦⣼⣿⡇⠀⢸⣿⣧⣴⠟⠋⠀⠀⣿⡄⡄⠹⣧⠤⠾⠿⣛⣭⣴⡿⠋⠀\n" +
+            "⠀⠀⠀⠈⠛⠻⠿⣷⣶⠟⢰⡏⢸⣇⠀⠀⠀⠈⠉⢉⣹⠇⠀⠘⣏⡉⠉⠁⠀⠀⠀⢸⡇⢹⡆⠻⣶⣾⠿⠟⠛⠉⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⢠⡏⢠⡟⠀⣼⣿⣄⠀⠀⠀⡼⠋⠻⠀⠀⠀⠾⠉⢳⡀⠀⠀⣠⣿⣷⠀⢹⡄⢹⣆⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⢀⣟⣠⡿⢀⣼⡇⢹⣝⡷⣤⣼⣳⠴⠛⠳⠤⠔⠛⠦⣞⣷⣤⢴⣫⡟⠸⣷⡀⢿⣄⣻⡀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠸⢋⣿⠁⣼⢹⣆⠀⠉⠛⠛⠉⠁⠀⠀⣀⣿⣄⠀⠀⠀⠉⠛⠛⠉⠀⢠⡏⢧⠀⢿⡝⠇⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⣼⡇⣰⠃⠈⢿⣦⣄⣀⣀⣀⣤⡴⠞⠋⠉⠉⠳⢦⣤⣀⣀⣀⣠⣴⡿⠁⠘⣦⢸⣷⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⢿⣿⡏⢠⠄⢸⣧⠉⠉⢻⣀⣠⡶⠞⠛⠉⠛⠳⢶⣤⣀⡟⠉⠉⢸⡇⠀⡄⢹⡿⠟⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⢸⣡⡏⠀⡄⢿⡀⠀⠀⠛⠉⠀⠀⠀⠀⠀⠀⠀⠉⠛⠁⠀⢀⡿⢡⡀⢹⣬⡇⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠸⡿⣇⢸⣿⢸⣷⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⣾⡇⣼⣧⣸⢻⡇⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠹⣿⡏⡿⣧⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣾⣿⠻⣿⠏⢿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠁⠀⠻⣿⣦⣾⠀⠀⠀⠀⠀⣶⣤⡟⠟⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⢻⣧⡀⠀⠀⣼⡿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣦⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
 }
