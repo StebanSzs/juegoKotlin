@@ -24,6 +24,4 @@ class Guerrero(nombreGuerrero:String): Personaje(nombreGuerrero) {
         return true
     }
 
-
-
 }
