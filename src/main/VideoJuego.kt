@@ -1,6 +1,11 @@
 package main
+import kotlin.random.Random
 
 fun main() {
+
+    var selecPersonaje: Int? = 1
+    var selecEnemigo: Int? = 1
+
     println("**************************************")
     println("***** Inicio del juego Telelocos *****")
     println("**************************************")
@@ -23,34 +28,33 @@ fun main() {
         }
 
         if (opcion != 3) {
-            var selecPersonaje: Int?
+
 
             do {
                 imprimirTuPersonaje()
                 selecPersonaje = readLine()?.toIntOrNull()
 
+
                 when (selecPersonaje) {
                     1 -> {
                         println("Has seleccionado al Guerrero")
                         imprimirAsciiGuerrero()
-                        val personaje = Guerrero(nombre)
                     }
                     2 -> {
                         println("Has seleccionado al Hechicero")
                         imprimirAsciiHechicero()
-                        val personaje = Hechicero(nombre)
+
                     }
                     3 -> {
                         println("Has seleccionado a la Bruja")
                         imprimirAsciiBruja()
-                        val personaje = Bruja(nombre)
                     }
                     else -> println("Opción no válida\n")
                 }
             } while (selecPersonaje !in 1..3)
 
             imprimirTuEnemigo()
-            var selecEnemigo: Int?
+
 
             do {
                 selecEnemigo = readLine()?.toIntOrNull()
@@ -59,12 +63,10 @@ fun main() {
                     1 -> {
                         println("Tu enemigo es el Guerrero")
                         imprimirAsciiGuerrero()
-                        val enemigo = Guerrero("Enemigo")
                     }
                     2 -> {
                         println("Tu enemigo es el Hechicero")
                         imprimirAsciiHechicero()
-                        val enemigo = Hechicero("Hechicero")
                     }
                     3 -> {
                         println("Tu enemigo es la Bruja")
@@ -75,6 +77,42 @@ fun main() {
             } while (selecEnemigo !in 1..3)
         }
     } while (opcion !in 1..3)
+
+    if (selecPersonaje == 1 && selecEnemigo == 1){
+        println("Has seleccionado al Guerrero")
+        println("Tu enemigo es el Guerrero\n")
+
+        val guerrero = Guerrero(nombre)
+        val enemigo = Guerrero("Enemigo")
+
+        escenario1(guerrero, enemigo)
+
+    }else if (selecPersonaje == 1 && selecEnemigo == 2){
+        println("Has seleccionado al Guerrero")
+        println("Tu enemigo es el Hechicero")
+    }else if (selecPersonaje == 1 && selecEnemigo == 3){
+        println("Has seleccionado al Guerrero")
+        println("Tu enemigo es la Bruja")
+    }else if (selecPersonaje == 2 && selecEnemigo == 1){
+        println("Has seleccionado al Hechicero")
+        println("Tu enemigo es el Guerrero")
+    }else if (selecPersonaje == 2 && selecEnemigo == 2){
+        println("Has seleccionado al Hechicero")
+        println("Tu enemigo es el Hechicero")
+    }else if (selecPersonaje == 2 && selecEnemigo == 3){
+        println("Has seleccionado al Hechicero")
+        println("Tu enemigo es la Bruja")
+    }else if (selecPersonaje == 3 && selecEnemigo == 1){
+        println("Has seleccionado a la Bruja")
+        println("Tu enemigo es el Guerrero")
+    }else if (selecPersonaje == 3 && selecEnemigo == 2){
+        println("Has seleccionado a la Bruja")
+        println("Tu enemigo es el Hechicero")
+    }else if (selecPersonaje == 3 && selecEnemigo == 3){
+        println("Has seleccionado a la Bruja")
+        println("Tu enemigo es la Bruja")
+    }
+
 }
 
 fun imprimirMenuOpciones() {
@@ -104,33 +142,11 @@ fun imprimirTuPersonaje() {
 }
 
 fun imprimirTuEnemigo() {
-    println("***** Selecciona un enemigo *****")
+    println("***** Selecciona tu enemigo *****")
     println()
     println("1. Guerrero")
     println("2. Hechizero")
     println("3. Bruja")
-}
-
-fun seleccionarPersonaje() {
-    var selecPersonaje: Int?
-
-    do {
-        imprimirTuPersonaje()
-        selecPersonaje = readLine()?.toIntOrNull()
-
-        when (selecPersonaje) {
-            1 -> imprimirAsciiGuerrero()
-            2 -> {
-                println("Has seleccionado al Hechicero")
-                imprimirAsciiHechicero()
-            }
-            3 -> {
-                println("Has seleccionado a la Bruja")
-                imprimirAsciiBruja()
-            }
-            else -> println("Opción no válida\n")
-        }
-    } while (selecPersonaje !in 1..3)
 }
 
 fun imprimirAsciiBruja(){
@@ -214,4 +230,76 @@ fun imprimirAsciiHechicero (){
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⢻⣧⡀⠀⠀⣼⡿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣦⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+}
+fun escenario2(){
+
+}
+fun escenario3(){
+
+}
+fun escenario4(){
+
+}
+fun escenario5(){
+
+}
+fun escenario6(){
+
+}
+fun escenario7(){
+
+}
+fun escenario8(){
+
+}
+fun escenario9(){
+
+}
+fun escenario1(guerrero: Guerrero, enemigo: Guerrero) {
+    println("Comienza la batalla!\n")
+
+    while (guerrero.obtenerVida() > 0 && enemigo.obtenerVida() > 0) {
+        println("Estado actual:")
+        println("Tu vida: ${guerrero.obtenerVida()}")
+        println("Vida del enemigo: ${enemigo.obtenerVida()}\n")
+
+        // Turno del jugador (guerrero)
+        print("Selecciona tu acción (1. Atacar, 2. Poner escudo): ")
+        val accionJugador = readLine()?.toIntOrNull() ?: 1
+
+        when (accionJugador) {
+            1 -> guerrero.atacar(enemigo)
+            2 -> guerrero.ponerEscudo()
+            else -> {
+                println("Opción no válida. Se realizará un ataque por defecto.")
+                guerrero.atacar(enemigo)
+            }
+        }
+
+        if (enemigo.obtenerVida() <= 0) {
+            println("¡Has derrotado al enemigo! ¡Eres un gran guerrero!")
+            break
+        }
+
+        // Turno del enemigo (guerrero)
+        val accionEnemigo = Random.nextInt(1, 3) // 1 para atacar, 2 para poner escudo
+
+        when (accionEnemigo) {
+            1 -> {
+                println("El enemigo te ataca.")
+                enemigo.atacar(guerrero)
+            }
+            2 -> {
+                println("El enemigo pone un escudo.")
+                enemigo.ponerEscudo()
+            }
+        }
+
+        if (guerrero.obtenerVida() <= 0) {
+            println("¡Has sido derrotado por el enemigo! ¡Mejor suerte la próxima vez!")
+            break
+        }
+
+        println("\n--- Fin del turno ---\n")
+    }
 }

@@ -6,6 +6,7 @@ abstract class Personaje (val nombre:String){
     private var resistencia:Int = 100
     private var posX:Int = 0
     private var posY:Int = 0
+    private var fuerza:Int = 0
 
     fun transportar (destinoX:Int,destinoY:Int){
         posX = destinoX
@@ -48,4 +49,9 @@ abstract class Personaje (val nombre:String){
     fun estaProtegido():Boolean{
         return escudo
     }
+
+    fun obtenerVida(): Int {
+        return vida
+    }
+
 }
