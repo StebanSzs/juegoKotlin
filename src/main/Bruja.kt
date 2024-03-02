@@ -1,7 +1,7 @@
 package main
 
 class Bruja(nombreBruja:String): Personaje(nombreBruja) {
-    private var poder = 15
+    private var poder = 15F
 
     fun atacar(enemigo: Personaje): Boolean {
         if (enemigo.estaProtegido()) {
@@ -17,6 +17,6 @@ class Bruja(nombreBruja:String): Personaje(nombreBruja) {
         val vidaEnemigo = enemigo.obtenerVida()
         val veneno = vidaEnemigo / 3
         enemigo.modificarVida(-veneno)
-        personaje.modificarVida(-10)
+        personaje.modificarVida(-veneno/2)
     }
 }

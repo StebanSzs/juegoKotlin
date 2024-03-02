@@ -7,7 +7,7 @@ class Escenario {
     fun escenario1(guerrero: Guerrero, enemigo: Guerrero) {
         println("Comienza la batalla!\n")
 
-        while (guerrero.obtenerVida() > 0 && enemigo.obtenerVida() > 0) {
+        while (guerrero.obtenerVida() > 0.9 && enemigo.obtenerVida() > 0.9) {
             println("Estado actual:")
             println("Tu vida: ${guerrero.obtenerVida()}")
             println("Vida del enemigo: ${enemigo.obtenerVida()}\n")
@@ -26,7 +26,7 @@ class Escenario {
                 }
             }
 
-            if (enemigo.obtenerVida() <= 0) {
+            if (enemigo.obtenerVida() < 1) {
                 println("¡Has derrotado al enemigo! ¡Eres un gran guerrero!")
                 break
             }
@@ -46,7 +46,7 @@ class Escenario {
                 }
             }
 
-            if (guerrero.obtenerVida() <= 0) {
+            if (guerrero.obtenerVida() < 1) {
                 println("¡Has sido derrotado por el enemigo! ¡Mejor suerte la próxima vez!")
                 break
             }
@@ -58,7 +58,7 @@ class Escenario {
     fun escenario2(guerrero: Guerrero, enemigo: Hechicero) {
         println("Comienza la batalla!\n")
 
-        while (guerrero.obtenerVida() > 0 && enemigo.obtenerVida() > 0) {
+        while (guerrero.obtenerVida() > 0.9 && enemigo.obtenerVida() > 0.9) {
             println("Estado actual:")
             println("Tu vida: ${guerrero.obtenerVida()}")
             println("Vida del enemigo: ${enemigo.obtenerVida()}\n")
@@ -77,7 +77,7 @@ class Escenario {
                 }
             }
 
-            if (enemigo.obtenerVida() <= 0) {
+            if (enemigo.obtenerVida() < 1) {
                 println("¡Has derrotado al enemigo! ¡Eres un gran guerrero!")
                 break
             }
@@ -105,7 +105,7 @@ class Escenario {
                 }
             }
 
-            if (guerrero.obtenerVida() <= 0) {
+            if (guerrero.obtenerVida() < 1) {
                 println("¡Has sido derrotado por el enemigo! ¡Mejor suerte la próxima vez!")
                 break
             }
@@ -114,10 +114,10 @@ class Escenario {
         }
     }
 
-fun escenario3 (guerrero: Guerrero, enemigo: Bruja) {
+fun escenario3(guerrero: Guerrero, enemigo: Bruja) {
     println("Comienza la batalla!\n")
 
-    while (guerrero.obtenerVida() > 0 && enemigo.obtenerVida() > 0) {
+    while (guerrero.obtenerVida() > 0.9 && enemigo.obtenerVida() > 0.9) {
         println("Estado actual:")
         println("Tu vida: ${guerrero.obtenerVida()}")
         println("Vida del enemigo: ${enemigo.obtenerVida()}\n")
@@ -136,7 +136,13 @@ fun escenario3 (guerrero: Guerrero, enemigo: Bruja) {
             }
         }
 
-        if (enemigo.obtenerVida() <= 0) {
+        // Verificar empate después de la acción del jugador
+        if (guerrero.obtenerVida() < 1 && enemigo.obtenerVida() < 1) {
+            println("¡Ambos han muerto! ¡Es un empate!")
+            break
+        }
+
+        if (enemigo.obtenerVida() < 1) {
             println("¡Has derrotado al enemigo! ¡Eres un gran guerrero!")
             break
         }
@@ -164,7 +170,13 @@ fun escenario3 (guerrero: Guerrero, enemigo: Bruja) {
             }
         }
 
-        if (guerrero.obtenerVida() <= 0) {
+        // Verificar empate después de la acción del enemigo
+        if (guerrero.obtenerVida() <  1 && enemigo.obtenerVida() < 1) {
+            println("¡Ambos han muerto! ¡Es un empate!")
+            break
+        }
+
+        if (guerrero.obtenerVida() < 1) {
             println("¡Has sido derrotado por el enemigo! ¡Mejor suerte la próxima vez!")
             break
         }
@@ -172,4 +184,5 @@ fun escenario3 (guerrero: Guerrero, enemigo: Bruja) {
         println("\n--- Fin del turno ---\n")
     }
 }
+
 

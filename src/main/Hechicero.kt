@@ -1,17 +1,17 @@
 package main
 
 class Hechicero(nombreHechicero:String): Personaje(nombreHechicero) {
-    private var magia = 20
-    private var fuerza = 12
+    private var magia = 20F
+    private var fuerza = 12F
 
     fun modificarFuerza(incremento:Int){
 
         val nuevaMagia = magia+incremento
 
         if (nuevaMagia > 20){
-            magia = 20
+            magia = 20F
         } else if(nuevaMagia < 20){
-            magia = 0
+            magia = 0F
         }else{
             magia = nuevaMagia
         }

@@ -1,7 +1,7 @@
 package main
 
 abstract class Personaje (val nombre:String){
-    private var vida:Int = 100
+    private var vida:Float = 100F
     private var escudo:Boolean= false
     private var resistencia:Int = 100
     private var posX:Int = 0
@@ -21,13 +21,13 @@ abstract class Personaje (val nombre:String){
         posY += distancia
     }
 
-    fun modificarVida(incremento:Int){
+    fun modificarVida(incremento:Float){
         val nuevaVida = vida+incremento
 
         if (nuevaVida > 100){
-            vida = 100
+            vida = 100F
         } else if(nuevaVida < 0){
-            vida = 0
+            vida = 0F
         }else{
             vida = nuevaVida
         }
@@ -50,7 +50,7 @@ abstract class Personaje (val nombre:String){
         return escudo
     }
 
-    fun obtenerVida(): Int {
+    fun obtenerVida(): Float {
         return vida
     }
 
