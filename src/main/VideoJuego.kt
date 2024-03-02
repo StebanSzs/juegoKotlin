@@ -231,30 +231,7 @@ fun imprimirAsciiHechicero (){
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣦⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
 }
-fun escenario2(){
 
-}
-fun escenario3(){
-
-}
-fun escenario4(){
-
-}
-fun escenario5(){
-
-}
-fun escenario6(){
-
-}
-fun escenario7(){
-
-}
-fun escenario8(){
-
-}
-fun escenario9(){
-
-}
 fun escenario1(guerrero: Guerrero, enemigo: Guerrero) {
     println("Comienza la batalla!\n")
 
@@ -269,6 +246,7 @@ fun escenario1(guerrero: Guerrero, enemigo: Guerrero) {
 
         when (accionJugador) {
             1 -> guerrero.atacar(enemigo)
+
             2 -> guerrero.ponerEscudo()
             else -> {
                 println("Opción no válida. Se realizará un ataque por defecto.")
@@ -286,11 +264,28 @@ fun escenario1(guerrero: Guerrero, enemigo: Guerrero) {
 
         when (accionEnemigo) {
             1 -> {
-                println("El enemigo te ataca.")
+                println("El enemigo te ataca.\n")
                 enemigo.atacar(guerrero)
             }
             2 -> {
-                println("El enemigo pone un escudo.")
+                println("El enemigo se pone un escudo." +
+                        "         \n" +
+                        "   |\\                     /)\n" +
+                        " /\\_\\\\__               (_//\n" +
+                        "|   `>\\-`     _._       //`)\n" +
+                        " \\ /` \\\\  _.-`:::`-._  //\n" +
+                        "  `    \\|`    :::    `|/\n" +
+                        "        |     :::     |\n" +
+                        "        |.....:::.....|\n" +
+                        "        |:::::::::::::|\n" +
+                        "        |     :::     |\n" +
+                        "        \\     :::     /\n" +
+                        "         \\    :::    /\n" +
+                        "          `-. ::: .-'\n" +
+                        "           //`:::`\\\\\n" +
+                        "          //   '   \\\\\n" +
+                        "         |/         \\\\" +
+                        "\n" )
                 enemigo.ponerEscudo()
             }
         }
