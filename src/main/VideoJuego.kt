@@ -6,9 +6,7 @@ fun main() {
     var selecPersonaje: Int? = 1
     var selecEnemigo: Int? = 1
 
-    println("**************************************")
-    println("***** Inicio del juego Telelocos *****")
-    println("**************************************")
+    imprimirSaludo()
 
     print("\nIngresa tu nombre: ")
     val nombre = readLine().toString()
@@ -99,24 +97,66 @@ fun main() {
     }else if (selecPersonaje == 1 && selecEnemigo == 3){
         println("Has seleccionado al Guerrero")
         println("Tu enemigo es la Bruja")
+
+        val guerrero = Guerrero(nombre)
+        val enemigo = Bruja("Enemigo")
+
+        escenario3(guerrero, enemigo)
+
     }else if (selecPersonaje == 2 && selecEnemigo == 1){
         println("Has seleccionado al Hechicero")
         println("Tu enemigo es el Guerrero")
+
+        val hechicero = Hechicero(nombre)
+        val enemigo = Guerrero("Enemigo")
+
+        //escenario4(hechicero, enemigo)
+
     }else if (selecPersonaje == 2 && selecEnemigo == 2){
         println("Has seleccionado al Hechicero")
         println("Tu enemigo es el Hechicero")
+
+        val hechicero = Hechicero(nombre)
+        val enemigo = Hechicero("Enemigo")
+
+        //escenario5(hechicero, enemigo)
+
     }else if (selecPersonaje == 2 && selecEnemigo == 3){
         println("Has seleccionado al Hechicero")
         println("Tu enemigo es la Bruja")
+
+        val hechicero = Hechicero(nombre)
+        val enemigo = Bruja("Enemigo")
+
+        //escenario6(hechicero, enemigo)
+
     }else if (selecPersonaje == 3 && selecEnemigo == 1){
         println("Has seleccionado a la Bruja")
         println("Tu enemigo es el Guerrero")
+
+        val bruja = Bruja(nombre)
+        val enemigo = Guerrero("Enemigo")
+
+        //escenario7(bruja, enemigo)
+
     }else if (selecPersonaje == 3 && selecEnemigo == 2){
         println("Has seleccionado a la Bruja")
         println("Tu enemigo es el Hechicero")
+
+        val bruja = Bruja(nombre)
+        val enemigo = Hechicero("Enemigo")
+
+        //escenario8(bruja, enemigo)
+
     }else if (selecPersonaje == 3 && selecEnemigo == 3){
         println("Has seleccionado a la Bruja")
         println("Tu enemigo es la Bruja")
+
+        val bruja = Bruja(nombre)
+        val enemigo = Bruja("Enemigo")
+
+        //escenario9(bruja, enemigo)
+
     }
 
 }

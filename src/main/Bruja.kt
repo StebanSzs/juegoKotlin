@@ -13,10 +13,10 @@ class Bruja(nombreBruja:String): Personaje(nombreBruja) {
         return true
     }
 
-    fun veneno(personaje:Bruja, enemigo: Personaje){
+    fun veneno(personaje:Personaje, enemigo: Personaje){
         val vidaEnemigo = enemigo.obtenerVida()
-        val veneno = vidaEnemigo / 4
-        enemigo.modificarVida(veneno)
+        val veneno = vidaEnemigo / 3
+        enemigo.modificarVida(-veneno)
         personaje.modificarVida(-10)
     }
 }
