@@ -12,4 +12,11 @@ class Bruja(nombreBruja:String): Personaje(nombreBruja) {
         enemigo.quitarEscudo()
         return true
     }
+
+    fun veneno(personaje:Bruja, enemigo: Personaje){
+        val vidaEnemigo = enemigo.obtenerVida()
+        val veneno = vidaEnemigo / 4
+        enemigo.modificarVida(veneno)
+        personaje.modificarVida(-10)
+    }
 }

@@ -26,7 +26,7 @@ class Hechicero(nombreHechicero:String): Personaje(nombreHechicero) {
             enemigo.quitarEscudo()
             return false
         }
-        enemigo.modificarVida(-magia)
+        enemigo.modificarVida(-fuerza)
         enemigo.quitarEscudo()
         return true
     }
