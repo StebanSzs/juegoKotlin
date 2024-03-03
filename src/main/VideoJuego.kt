@@ -110,7 +110,7 @@ fun main() {
         val hechicero = Hechicero(nombre)
         val enemigo = Guerrero("Enemigo")
 
-        //escenario4(hechicero, enemigo)
+        escenario4(hechicero, enemigo)
 
     }else if (selecPersonaje == 2 && selecEnemigo == 2){
         println("Has seleccionado al Hechicero")
@@ -119,7 +119,7 @@ fun main() {
         val hechicero = Hechicero(nombre)
         val enemigo = Hechicero("Enemigo")
 
-        //escenario5(hechicero, enemigo)
+        escenario5(hechicero, enemigo)
 
     }else if (selecPersonaje == 2 && selecEnemigo == 3){
         println("Has seleccionado al Hechicero")
@@ -128,7 +128,7 @@ fun main() {
         val hechicero = Hechicero(nombre)
         val enemigo = Bruja("Enemigo")
 
-        //escenario6(hechicero, enemigo)
+        escenario6(hechicero, enemigo)
 
     }else if (selecPersonaje == 3 && selecEnemigo == 1){
         println("Has seleccionado a la Bruja")
@@ -137,7 +137,7 @@ fun main() {
         val bruja = Bruja(nombre)
         val enemigo = Guerrero("Enemigo")
 
-        //escenario7(bruja, enemigo)
+        escenario7(bruja, enemigo)
 
     }else if (selecPersonaje == 3 && selecEnemigo == 2){
         println("Has seleccionado a la Bruja")
@@ -146,7 +146,7 @@ fun main() {
         val bruja = Bruja(nombre)
         val enemigo = Hechicero("Enemigo")
 
-        //escenario8(bruja, enemigo)
+        escenario8(bruja, enemigo)
 
     }else if (selecPersonaje == 3 && selecEnemigo == 3){
         println("Has seleccionado a la Bruja")
@@ -155,7 +155,7 @@ fun main() {
         val bruja = Bruja(nombre)
         val enemigo = Bruja("Enemigo")
 
-        //escenario9(bruja, enemigo)
+        escenario9(bruja, enemigo)
 
     }
 
