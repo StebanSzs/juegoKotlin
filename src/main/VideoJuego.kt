@@ -20,8 +20,7 @@ fun main() {
 
         when (opcion) {
             1 -> println("Bienvenido ${nombre.uppercase()}, al juego de los Telelocos\n")
-            2 -> println("Instrucciones\n")
-            3 -> imprimirDespedida()
+            2 -> imprimirDespedida()
             else -> println("Opción no válida\n")
         }
 
@@ -164,8 +163,7 @@ fun main() {
 fun imprimirMenuOpciones() {
     println("***** Selecciona una opción *****\n")
     println("1. Iniciar juego")
-    println("2. Instrucciones")
-    println("3. Salir")
+    println("2. Salir")
 }
 
 fun imprimirSaludo(){

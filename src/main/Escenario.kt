@@ -148,14 +148,17 @@ fun escenario3(guerrero: Guerrero, enemigo: Bruja) {
         when (accionEnemigo) {
             1 -> {
                 println("El enemigo te ataca.\n")
+                imprimirAsciiAtacarBruja()
                 enemigo.atacar(guerrero)
             }
             2 -> {
                 println("El enemigo se pone un escudo.\n")
+                imprimirAsciiEscudo()
                 enemigo.ponerEscudo()
             }
             3 -> {
                 println("El enemigo te tira veneno\n")
+                imprimirAsciiVeneno()
                 enemigo.veneno(enemigo, guerrero)
             }
         }
